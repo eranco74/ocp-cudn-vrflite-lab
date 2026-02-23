@@ -1,0 +1,14 @@
+apiVersion: k8s.ovn.org/v1
+kind: ClusterUserDefinedNetwork
+metadata:
+  name: tenant1-net
+spec:
+  namespaceSelector:
+    matchLabels:
+      network: tenant1-net
+  network:
+    topology: Layer2
+    layer2: 
+      role: Primary
+      subnets: [10.0.1.0/24] 
+      ipam: {lifecycle: Persistent}
